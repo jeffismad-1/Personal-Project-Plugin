@@ -6,5 +6,7 @@ public final class Plugin_Develompent extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        new TurtleHatche(this);
+
     }
 }
