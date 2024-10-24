@@ -1,0 +1,4 @@
+name: Plugin_Develompent
+version: '1.0-SNAPSHOT'
+main: main.plugin_Develompent.Plugin_Develompent
+api-version: '1.21'
