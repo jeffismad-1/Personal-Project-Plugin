@@ -3,6 +3,7 @@ package main.plugin_Develompent;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -33,9 +34,13 @@ public class TurtleHatche  implements Listener {
                 ChatColor.GREEN + "Right click for a Turtle"
                 )
         );
+            TurtleHatche.setItemMeta(meta);
 
         if (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
             if (player.getInventory().getItemInMainHand().equals(TurtleHatche)) {
+                player.getWorld().spawnEntity(player.getLocation(), EntityType.TURTLE);
+                player.sendMessage(ChatColor.RED + "You hatched a Turtle!");
+
 
             }
         }
