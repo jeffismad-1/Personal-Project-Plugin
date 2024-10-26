@@ -10,6 +10,7 @@ public final class Plugin_Develompent extends JavaPlugin {
     public void onEnable() {
         // Register the TurtleHatche event listener
         new TurtleHatche(this);
+        new TheLauncher(this);
 
         // Register the TurtleHatcheCommand executor for the command "turtlehatche"
         Objects.requireNonNull(this.getCommand("turtlehatche")).setExecutor(new TurtleHatcheCommand(this));
