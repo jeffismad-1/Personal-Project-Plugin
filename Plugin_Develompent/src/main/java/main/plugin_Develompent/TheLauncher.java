@@ -1,7 +1,5 @@
 package main.plugin_Develompent;
 
-import org.bukkit.Material;
-import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Player;
 import org.bukkit.entity.TNTPrimed;
 import org.bukkit.event.EventHandler;
@@ -17,19 +15,20 @@ public class TheLauncher implements Listener {
     }
 
     @EventHandler
-    public void Shoot(PlayerInteractEvent  event) {
+    public void Shoot(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         ItemStack itemInHand = player.getInventory().getItemInMainHand();
-        if (itemInHand!= null
-                && itemInHand 
-                && (event.getAction().toString().contains("RIGHT_CLICK") || event.getAction().toString().contains("LEFT_CLICK")));
-        TNTPrimed tnt = player.getWorld().spawn(player.getEyeLocation().add(player.getLocation().getDirection()), TNTPrimed.class);
-        tnt.setVelocity(player.getLocation().getDirection().multiply(1.5));
-        tnt.setFuseTicks(20);
 
+        // Check if the player is holding the launcher item and right-clicking or left-clicking
+        if (itemInHand != null
+                && itemInHand.isSimilar(TheLauncherItem.createLauncherItem())
+                && (event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK
+                || event.getAction() == Action.LEFT_CLICK_AIR || event.getAction() == Action.LEFT_CLICK_BLOCK)) {
 
-
+            // Spawn and launch TNT
+            TNTPrimed tnt = player.getWorld().spawn(player.getEyeLocation().add(player.getLocation().getDirection()), TNTPrimed.class);
+            tnt.setVelocity(player.getLocation().getDirection().multiply(1.5)); // Adjust launch speed
+            tnt.setFuseTicks(20); // Set fuse time (1 second)
         }
-
     }
 }

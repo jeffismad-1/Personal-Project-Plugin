@@ -15,6 +15,7 @@ public final class Plugin_Develompent extends JavaPlugin {
 
 
         // Register the TurtleHatcheCommand executor for the command "turtlehatche"
+        Objects.requireNonNull(this.getCommand("thelauncher")).setExecutor(new TheLauncherCommand(this));
         Objects.requireNonNull(this.getCommand("turtlehatche")).setExecutor(new TurtleHatcheCommand(this));
     }
 }
