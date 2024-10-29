@@ -16,7 +16,8 @@ public class TurtleHatcherItem {
         if (meta != null) {
             meta.setDisplayName(ChatColor.GOLD + "Turtle Hatcher");
             meta.setUnbreakable(true);
-            meta.setLore(Arrays.asList(ChatColor.GREEN + "Right click for a Turtle"));
+            meta.setLore(Arrays.asList(
+                    ChatColor.GREEN + "Right click for a Turtle"));
             meta.setCustomModelData(5353); // Set unique Custom Model Data value
             turtleHatcher.setItemMeta(meta);
         }
