@@ -1,7 +1,11 @@
-name: Plugin_Develompent
+name: Plugin_Development
 version: '1.0-SNAPSHOT'
 main: main.plugin_Develompent.Plugin_Develompent
 api-version: '1.21'
 commands:
-  turtlehatche:
+  turtlehatche: # Keep the existing Turtle Hatcher command
     description: Get a Turtle Hatcher
+    usage: /turtlehatche # Optional: Add usage information
+  thelauncher: # Add the new Launcher command
+    description: Get The Launcher # Description for the new command
+    usage: /thelauncher # Optional: Add usage information

@@ -11,6 +11,7 @@ public final class Plugin_Develompent extends JavaPlugin {
         // Register the TurtleHatche event listener
         new TurtleHatche(this);
         new TheLauncher(this);
+
         this.getServer().getPluginManager().registerEvents(new JoinEvent(), this);
 
 
