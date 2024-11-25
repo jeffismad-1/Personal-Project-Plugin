@@ -1,11 +1,22 @@
 name: Plugin_Development
 version: '1.0-SNAPSHOT'
-main: main.plugin_Develompent.Plugin_Develompent
+main: main.plugin_Development.Plugin_Develompent
 api-version: '1.21'
+
 commands:
-  turtlehatche: # Keep the existing Turtle Hatcher command
+  turtlehatche:
     description: Get a Turtle Hatcher
-    usage: /turtlehatche # Optional: Add usage information
-  thelauncher: # Add the new Launcher command
-    description: Get The Launcher # Description for the new command
-    usage: /thelauncher # Optional: Add usage information
+    usage: /turtlehatche
+  thelauncher:
+    description: Get The Launcher
+    usage: /thelauncher
+  giveglacialscepter:
+    description: Gives the player the Glacial Scepter item.
+    usage: /giveglacialscepter
+    permission: glacialscepter.give
+    permission-message: "You don't have permission to use this command."
+  givecrimsongauntlet:
+    description: Gives the player the Crimson Gauntlet item.
+    usage: /givecrimsongauntlet
+    permission: crimsongauntlet.give
+    permission-message: "You don't have permission to use this command."
