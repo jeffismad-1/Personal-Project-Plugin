@@ -15,22 +15,25 @@ import org.bukkit.potion.PotionEffect;
 import org.bukkit.potion.PotionEffectType;
 
 public class GlacialScepter implements Listener {
-    public GlacialScepter(JavaPlugin plugin) {
-        plugin.getServer().getPluginManager().registerEvents(this, plugin);
 
+    private JavaPlugin plugin;
+
+    public GlacialScepter(JavaPlugin plugin) {
+        this.plugin = plugin;
+        plugin.getServer().getPluginManager().registerEvents(this, plugin); // Correct registration
     }
+
     @EventHandler
     public void Shoot(PlayerInteractEvent event) {
         Player player = event.getPlayer();
         ItemStack item = player.getInventory().getItemInMainHand();
 
-        if (item != null && item.isSimilar(GlacialScepterItem.getGlacialScepterItem()) && event.getAction() == Action.RIGHT_CLICK_AIR || event.getAction() == Action.RIGHT_CLICK_BLOCK) {
-            Snowball Snowball = player.launchProjectile(Snowball.class);
-            Snowball.setShooter(player);
-
-
-        };
+        if (item != null && item.isSimilar(GlacialScepterItem.getGlacialScepterItem()) && event.getAction() == Action.RIGHT_CLICK_AIR) {
+            Snowball snowball = player.launchProjectile(Snowball.class);
+            snowball.setShooter(player);
+        }
     }
+
     @EventHandler
     public void onProjectileHitEvent(ProjectileHitEvent event) {
         Projectile projectile = event.getEntity();
@@ -39,10 +42,9 @@ public class GlacialScepter implements Listener {
             if (projectile.getShooter() instanceof Player) {
                 if (event.getHitEntity() instanceof LivingEntity) {
                     LivingEntity livingEntity = (LivingEntity) event.getHitEntity();
-                    livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS , 30 ,5 ));
+                    livingEntity.addPotionEffect(new PotionEffect(PotionEffectType.SLOWNESS, 100, 5)); // Adds slowness for 5 seconds
                 }
             }
         }
     }
 }
-

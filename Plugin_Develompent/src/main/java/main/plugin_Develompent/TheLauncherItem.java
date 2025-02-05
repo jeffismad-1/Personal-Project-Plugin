@@ -18,6 +18,7 @@ public class TheLauncherItem {
             meta.setLore(Arrays.asList(
                     ChatColor.GREEN + "Shoot the bow to spawn TNT"
             ));
+            meta.setEnchantmentGlintOverride(true);
             Launcher.setItemMeta(meta);
         }
         return Launcher;

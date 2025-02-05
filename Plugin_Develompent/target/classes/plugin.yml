@@ -1,6 +1,6 @@
 name: Plugin_Development
 version: '1.0-SNAPSHOT'
-main: main.plugin_Development.Plugin_Develompent
+main: main.plugin_Develompent.Plugin_Development  # Corrected package name and class name
 api-version: '1.21'
 
 commands:
@@ -20,3 +20,6 @@ commands:
     usage: /givecrimsongauntlet
     permission: crimsongauntlet.give
     permission-message: "You don't have permission to use this command."
+  challenges:
+    description: Start/Stop challenges like Block Break and Random Block.
+    usage: /challenges <start/stop/randomstart/randomstop>

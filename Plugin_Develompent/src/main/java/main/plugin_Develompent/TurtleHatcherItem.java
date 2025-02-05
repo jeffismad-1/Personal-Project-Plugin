@@ -19,6 +19,8 @@ public class TurtleHatcherItem {
             meta.setLore(Arrays.asList(
                     ChatColor.GREEN + "Right click for a Turtle"));
             meta.setCustomModelData(5353); // Set unique Custom Model Data value
+            meta.setUnbreakable(true);
+            meta.setEnchantmentGlintOverride(true);
             turtleHatcher.setItemMeta(meta);
         }
 

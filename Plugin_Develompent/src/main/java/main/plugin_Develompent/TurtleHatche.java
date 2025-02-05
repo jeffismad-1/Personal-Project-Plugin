@@ -11,9 +11,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TurtleHatche implements Listener {
+    private final JavaPlugin plugin;
 
+    // Constructor now accepts a JavaPlugin instance
     public TurtleHatche(JavaPlugin plugin) {
-        plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        this.plugin = plugin;
+        plugin.getServer().getPluginManager().registerEvents(this, plugin); // Register events
     }
 
     @EventHandler

@@ -11,8 +11,11 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class TheLauncher implements Listener {
+    private final JavaPlugin plugin; // Store the plugin instance
+
     public TheLauncher(JavaPlugin plugin) {
-        plugin.getServer().getPluginManager().registerEvents(this, plugin);
+        this.plugin = plugin;
+        plugin.getServer().getPluginManager().registerEvents(this, plugin); // Register events properly
     }
 
     @EventHandler
@@ -32,15 +35,14 @@ public class TheLauncher implements Listener {
             tnt.setFuseTicks(40); // Set fuse time (1 second)
             event.setCancelled(true);
         }
-
-
     }
+
+    @EventHandler
     public void onTNTExplode(EntityExplodeEvent event) {
         if (event.getEntity() instanceof TNTPrimed) {
             event.setCancelled(true);
-            float customPower = 10;
-            event.getLocation().getWorld().createExplosion(event.getLocation(), customPower, true , true);
+            float customPower = 40; // Custom explosion power
+            event.getLocation().getWorld().createExplosion(event.getLocation(), customPower, true , true); // Create custom explosion
         }
-
     }
 }
